@@ -1,0 +1,234 @@
+@import './variables';
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+@mixin flex($direction){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+@mixin mobile($size){
+    @media only screen and (max-width: $size){
+        @content;
+    }
+}
+
+@mixin containerMobile{
+    width: 100%;
+}
+
+@mixin border{
+    border: 1px solid $--extras;
+    border-radius: 0.3rem;
+}
+
+html, body{
+    margin: auto;
+    scroll-behavior: smooth;
+    font-family: $--Noto;
+    color: $--default;
+    width: 100%;
+    height: 100%;
+    background-color: $--default;
+    line-height: 1.6;
+    word-wrap: break-word;
+    background-color: $---background;
+}
+a{
+    color: $--dark;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+img{
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
+}
+ul{
+    list-style-type: none;
+}
+div,
+button,
+h1,h2,h3,h4,h5,h6,
+span,p{
+    margin: 0;
+}
+h1{
+    font-family: $--DynaPuff;
+    text-transform: uppercase;
+    font-size: 6vw;
+}
+h2{
+    font-family: $--DynaPuff;
+    font-size: 2rem;
+    text-transform: uppercase;
+
+    @include mobile(1000px){
+        font-size: 1.2rem;
+    }
+    
+}
+h3{
+    font-family: $--JosefinSans;
+    text-transform: Capitalize;
+
+    @include mobile(1000px){
+        font-size: 1rem;
+    }
+}
+h4{
+    text-transform: uppercase;
+    font-family: $--DynaPuff;
+    font-size: 1rem;
+
+    @include mobile(1000px){
+        font-size: 0.8rem;
+    }
+}
+p{
+    text-align: justify;
+}
+span{
+    // font-size: ;
+}
+input, 
+select,  
+textarea{
+    margin: auto;
+    width: 80%;
+    text-transform: capitalize;
+    font-family: inherit;
+    font-size: 1.2rem;
+    padding: 0.8rem 0.5rem;
+    @include border;
+    color: $--dark;
+    resize: none;
+
+    @include mobile(1000px){
+        width: 100%;
+        font-size: 16px;
+    }
+}
+input[type=submit]{
+    font-family: $--DynaPuff;
+    font-weight:1000;
+    cursor: pointer;
+
+    @include mobile(1000px){
+        font-weight: 100;
+    }
+}
+button{
+    font-family: $--DynaPuff;
+    font-size: 1rem;
+    width: 120px;
+    border: none;
+    font-weight: 1000;
+    text-transform: uppercase;
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+
+    @include mobile(1000px){
+        font-weight: 100;
+    }
+}
+
+// COMPONENTS STYLING
+
+// CONTAINER Component
+.container{
+    margin: auto;
+    width: 80%;
+    margin-top: 15vh;
+    @include flex(column);
+    gap: 2rem;
+    flex-wrap: wrap;
+
+    .container--cards{
+        width: 80%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+}
+// CARD Component
+.card{
+    margin: auto;
+    width: 470px;
+    height: 500px;
+    box-shadow: 5px 5px 12px rgb(17, 47, 47),
+                -5px -5px 12px rgb(40, 65, 65);
+    @include flex(column);
+    align-items: flex-start;
+    border: solid $--extras;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    transition: all 1000ms;
+
+    &:hover{
+        transform: scale(1.02);
+    }
+
+    h2{
+        border-bottom: 1px double;
+    }
+
+    i{
+        text-align: justify;
+    }
+
+    .details{
+        
+        & > div{
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding-block: 0.5rem;
+            margin: 0;
+        }
+    }
+    button{
+        margin: auto;
+        font-style: italic;
+        padding: 0;
+        width: 50%;
+        font-family: $--Noto;
+        text-transform: lowercase;
+    }
+}
+
+// MODAL component
+.modal{
+    position: absolute;
+    @include flex(column);
+    width: 50%;
+    margin: auto;
+    padding-block: 1rem;
+    background-color: $---green-gray;
+    z-index: 1;
+    left: 0;
+    top: 15px;
+    right: 0;
+
+    form{
+        @include flex(column);
+        width: 100%;
+    }
+}
+
+.fire{
+    border: solid $---green-gray;
+    width: 50%;
+    @include flex(column);
+    align-items: flex-start;
+}
