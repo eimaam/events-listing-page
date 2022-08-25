@@ -23,8 +23,8 @@ export default function Modal(props) {
             )}
 
         function addCard(){
-            if(data == ""){
-                return null
+            if(data.eventName == ""){
+                return alert("Event Name can not be empty.")
             }else{
                 return eventData.push(data)
             }
