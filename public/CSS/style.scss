@@ -112,7 +112,6 @@ select,
 textarea{
     margin: auto;
     width: 80%;
-    text-transform: capitalize;
     font-family: $--Ubuntu;
     font-size: 1.2rem;
     padding: 0.8rem 0.5rem;
@@ -161,6 +160,7 @@ nav{
     top: 0;
     background-color: $--primary;
     padding-inline: 1rem;
+    z-index: 2;
 
     h2{
         color: $--white;

@@ -4,12 +4,12 @@ import { eventData } from './eventsData'
 
 export default function Modal(props) {
     const [data, setData] = useState({
-        eventName:"",
-        aboutEvent:"",
+        listingName:"",
+        aboutListing:"",
         venue:"",
-        startDate:"",
-        endDate:"",
-        startTime:"",
+        startingDate:"",
+        endingDate:"",
+        startingTime:"",
         endingTime:"",
       })
 
@@ -23,9 +23,10 @@ export default function Modal(props) {
             )}
 
         function addCard(){
-            if(data.eventName == ""){
+            if(data.listingName == ""){
                 return alert("Event Name can not be empty.")
             }else{
+                console.log(data)
                 return eventData.push(data)
             }
         }
@@ -34,10 +35,10 @@ export default function Modal(props) {
         <form>
             <input 
             type="text" 
-            name='eventName'
-            value={data.eventName}
+            name='listingName'
+            value={data.listingName}
             placeholder="Event Name"
-            required
+            maxLength={30}
             onChange={handleChange}
             />
             <textarea
@@ -46,25 +47,26 @@ export default function Modal(props) {
             name='aboutEvent'
             value={data.aboutEvent}
             placeholder="Event detail"
+            maxLength={150}
             onChange={handleChange}
             />
             <input 
             type="text" 
             name='venue'
             value={data.venue}
-            placeholder="Event Venue (Local or Online)"
+            placeholder="Event Venue (Physical or Online)"
             onChange={handleChange}
             />
             <input 
             type="date" 
-            name='startDate'
-            value={data.startDate}
+            name='startingDate'
+            value={data.startingDate}
             onChange={handleChange}
             />
             <input 
             type="date" 
-            name='endDate'
-            value={data.endDate}
+            name='endingDate'
+            value={data.endingDate}
             onChange={handleChange}
             />
             <input 

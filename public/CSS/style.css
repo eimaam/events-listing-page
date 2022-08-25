@@ -100,7 +100,6 @@ select,
 textarea {
   margin: auto;
   width: 80%;
-  text-transform: capitalize;
   font-family: "Ubuntu Mono", monospace;
   font-size: 1.2rem;
   padding: 0.8rem 0.5rem;
@@ -154,6 +153,7 @@ nav {
   top: 0;
   background-color: #7990a7;
   padding-inline: 1rem;
+  z-index: 2;
 }
 nav h2 {
   color: #fff;
