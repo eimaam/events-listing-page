@@ -12,7 +12,7 @@
     align-items: center;
     gap: 1rem;
 }
-@mixin mobile($size){
+@mixin mediaQuery($size){
     @media only screen and (max-width: $size){
         @content;
     }
@@ -70,17 +70,21 @@ h2{
     font-size: 2rem;
     text-transform: uppercase;
 
-    @include mobile(1000px){
-        font-size: 1.2rem;
+    @include mediaQuery(1420px){
+        font-size: 1.6rem;
+    }
+    @include mediaQuery(890px){
+        font-size: 1.5rem;
     }
     
 }
 h3{
-    font-family: $--Kanit;
+    font-family: $--Poppins;
     text-transform: uppercase;
     font-size: 1.3rem;
+    letter-spacing: 1px;
 
-    @include mobile(1000px){
+    @include mediaQuery(1000px){
         font-size: 1rem;
     }
 }
@@ -89,7 +93,7 @@ h4{
     font-family: $--Poppins;
     font-size: 1rem;
 
-    @include mobile(1000px){
+    @include mediaQuery(1000px){
         font-size: 0.8rem;
     }
 }
@@ -116,7 +120,7 @@ textarea{
     color: $--primary;
     resize: none;
 
-    @include mobile(1000px){
+    @include mediaQuery(1000px){
         width: 100%;
         font-size: 16px;
     }
@@ -126,7 +130,7 @@ input[type=submit]{
     font-weight:1000;
     cursor: pointer;
 
-    @include mobile(1000px){
+    @include mediaQuery(1000px){
         font-weight: 100;
     }
 }
@@ -143,7 +147,7 @@ button{
     background-color: $--primary;
     color: $--white;
 
-    @include mobile(1000px){
+    @include mediaQuery(1000px){
         font-weight: 100;
     }
 }
@@ -172,20 +176,29 @@ nav{
     flex-wrap: wrap;
 
     .container--cards{
-        width: 80%;
+        margin: auto;
+        width: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         justify-content: center;
         align-items: center;
         gap: 2rem;
         flex-wrap: wrap;
+
+        @include mediaQuery(1420px){
+            grid-template-columns: 1fr 1fr;
+        }
+        @include mediaQuery(925px){
+            grid-template-columns: 1fr;
+        }
+        
     }
 }
 // CARD Component
 .card{
     margin: auto;
     width: 470px;
-    height: 520px;
+    height: 530px;
     box-shadow: 5px 5px 10px rgb(211, 224, 224),
                 -5px -5px 10px rgb(151, 149, 149);
     @include flex(column);
@@ -194,6 +207,22 @@ nav{
     border-radius: 0.5rem;
     padding: 1rem;
     transition: all 1000ms;
+
+    @include mediaQuery(1020px){
+        width: 450px;
+    }
+    @include mediaQuery(960px){
+        width: 440px;
+    }
+    @include mediaQuery(925px){
+        width: 500px;
+        height: 100%;
+    }
+    @include mediaQuery(600px){
+        width: 90%;
+    }
+
+    
 
     &:hover{
         transform: scale(1.02);
@@ -213,8 +242,9 @@ nav{
             width: 100%;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            padding-block: 0.5rem;
+            padding-block: 0.3rem;
             margin: 0;
+            gap: 1rem;
         }
     }
     button{
@@ -232,17 +262,20 @@ nav{
     @include flex(column);
     width: 50%;
     margin: auto;
-    padding-block: 1rem;
+    padding: 1rem;
     background-color: #5b7997;
     z-index: 1;
     left: 0;
-    top: 15px;
+    top: 5rem;
     right: 0;
+
+    @include mediaQuery(925px){
+        width: 80%;
+    }
 
     form{
         @include flex(column);
         width: 100%;
-        background-color: $--primary;
     }
 }
 

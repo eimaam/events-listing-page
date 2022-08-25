@@ -1,8 +1,9 @@
 export const eventData = [
     {
         listingName: "Binance Meetup Asaba",
-        aboutListing: "An event aimed at bringing together Crypto-minded people to look into certain topics and network in fostering the growth...",
-        venue: "Asaba, Nigeria",
+        aboutListing: "An event for Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur explicabo iste tempora esse quae corrupti.",
+        aboutListing: "An event for aimed at bringing together Crypto-minded people to look into certain topics and network in fostering the growth...",
+        venue: "Asaba Township Hall, Nigeria",
         startDate: "02/02/2022",
         endingDate: "02/02/2022",
         startTime: "10:00am",
@@ -10,16 +11,16 @@ export const eventData = [
     },
     {
         listingName: "Facebook Developers Meetup",
-        aboutListing: "An event aimed at bringing together Developers around same community  to look into certain topics...",
-        venue: "Nike Hall, FCT, Abuja, Nigeria",
+        aboutListing: "An event aimed at bringing Developers to Teach, Learn and Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius, dolorum?",
+        venue: "ZOOM (Online)",
         startDate: "02/02/2022",
         endingDate: "02/02/2022",
         startTime: "10:00am",
         endingTime: "1:30pm",
     },
     {
-        listingName: "Major League Hacking MLH Meetup",
-        aboutListing: "An event aimed at bringing Developers to Teach, Learn and UnLearn ideas and network in fostering the growth...",
+        listingName: "Major League Hacking (MLH) Meetup",
+        aboutListing: "An event aimed at bringing Developers to Teach, Learn and Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius, dolorum?",
         venue: "Maiduguri, Borno State, Nigeria. ",
         startDate: "02/02/2022",
         endingDate: "02/02/2022",
@@ -28,7 +29,7 @@ export const eventData = [
     },
     {
         listingName: "Major League Hacking MLH Meetup",
-        aboutListing: "An event aimed at bringing Developers to Teach, Learn and UnLearn ideas and network in fostering the growth...",
+        aboutListing: "An event aimed at Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius, dolorum?",
         venue: "Maiduguri, Borno State, Nigeria. ",
         startDate: "02/02/2022",
         endingDate: "02/02/2022",

@@ -53,16 +53,22 @@ h2 {
   font-size: 2rem;
   text-transform: uppercase;
 }
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1420px) {
   h2 {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
+  }
+}
+@media only screen and (max-width: 890px) {
+  h2 {
+    font-size: 1.5rem;
   }
 }
 
 h3 {
-  font-family: "Kanit", sans-serif;
+  font-family: "Poppins", sans-serif;
   text-transform: uppercase;
   font-size: 1.3rem;
+  letter-spacing: 1px;
 }
 @media only screen and (max-width: 1000px) {
   h3 {
@@ -166,7 +172,8 @@ nav h2 {
   flex-wrap: wrap;
 }
 .container .container--cards {
-  width: 80%;
+  margin: auto;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
@@ -174,11 +181,21 @@ nav h2 {
   gap: 2rem;
   flex-wrap: wrap;
 }
+@media only screen and (max-width: 1420px) {
+  .container .container--cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (max-width: 925px) {
+  .container .container--cards {
+    grid-template-columns: 1fr;
+  }
+}
 
 .card {
   margin: auto;
   width: 470px;
-  height: 520px;
+  height: 530px;
   box-shadow: 5px 5px 10px rgb(211, 224, 224), -5px -5px 10px rgb(151, 149, 149);
   display: flex;
   flex-direction: column;
@@ -189,6 +206,27 @@ nav h2 {
   border-radius: 0.5rem;
   padding: 1rem;
   transition: all 1000ms;
+}
+@media only screen and (max-width: 1020px) {
+  .card {
+    width: 450px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .card {
+    width: 440px;
+  }
+}
+@media only screen and (max-width: 925px) {
+  .card {
+    width: 500px;
+    height: 100%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 90%;
+  }
 }
 .card:hover {
   transform: scale(1.02);
@@ -203,8 +241,9 @@ nav h2 {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding-block: 0.5rem;
+  padding-block: 0.3rem;
   margin: 0;
+  gap: 1rem;
 }
 .card button {
   margin: auto;
@@ -223,12 +262,17 @@ nav h2 {
   gap: 1rem;
   width: 50%;
   margin: auto;
-  padding-block: 1rem;
+  padding: 1rem;
   background-color: #5b7997;
   z-index: 1;
   left: 0;
-  top: 15px;
+  top: 5rem;
   right: 0;
+}
+@media only screen and (max-width: 925px) {
+  .modal {
+    width: 80%;
+  }
 }
 .modal form {
   display: flex;
@@ -237,7 +281,6 @@ nav h2 {
   align-items: center;
   gap: 1rem;
   width: 100%;
-  background-color: #7990a7;
 }
 
 .fire {
