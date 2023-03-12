@@ -10,14 +10,21 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id          String   @id @default(cuid())
+  email       String   @unique
+  name        String
 
+  @@map("users")
+}
 
 model Event {
-  id Int @id @default(autoincrement())
-  title String?
-  description String?
-  date String?
-  time String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String      @id @default(cuid())
+  title       String
+  description String
+  date        String
+  venue       String
+  time        String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }

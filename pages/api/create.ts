@@ -1,26 +1,27 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { PrismaClient } from '@prisma/client'
 
-type Data = {
-  name: string
-}
+const prisma = new PrismaClient()
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>){
-  const { title, description, date, time, } = req.body
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  try {
+    const { title, description, venue, date, time } = req.body
 
-  try{
-    await prisma?.event.create({
-      data:{
+    const result = await prisma.event.create({
+      data: {
         title,
         description,
+        venue,
         date,
-        time,
+        time
       }
     })
-    res.status(200).json({ name: 'John Doe' })
-  }
-  catch(err){
-    console.log("Cretion Failed")
-  }
 
+    res.json(result)
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: 'Error saving data' })
+  } finally {
+    await prisma.$disconnect()
+  }
 }
