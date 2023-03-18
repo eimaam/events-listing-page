@@ -3,31 +3,42 @@ import { RiDeleteBin2Fill } from "react-icons/ri"
 import { BsFillCalendar2DateFill } from "react-icons/bs"
 import { MdLocationOn } from "react-icons/md"
 import { RiTimeFill } from "react-icons/ri"
+import { AiFillEdit } from "react-icons/ai"
+import { Event } from '@/pages/create'
 
-const EventCard:React.FC<PropsWithChildren> = () => {
+interface EventCardProps extends Event {
+    handleDelete: () => void;
+    handleEdit: () => void;
+}
+
+const EventCard:React.FC<EventCardProps> = ({ title, description, time, date, venue, handleDelete, handleEdit }) => {
+    
   return (
     <div className='w-[350px] bg-extras flex flex-col gap-3 p-4 shadow-lg rounded-md relative'>
-        <RiDeleteBin2Fill className='text-red-600 text-lg absolute right-4 top-2 cursor-pointer'/>
-        <h2 className='text-2xl text-bold mt-4'>Flutter Forward Maiduguri</h2>
+        <div className='flex gap-4 absolute right-4 top-2'>
+            <RiDeleteBin2Fill onClick={handleDelete} className='text-red-600 text-lg cursor-pointer'/>
+            <AiFillEdit onClick={handleEdit} className='text-red-600 text-lg cursor-pointer'/>
+        </div>
+        <h2 className='text-2xl text-bold mt-4'>{title}</h2>
         <hr />
-        <i>Flutter forward extended Maiduguri event will feature a keynote, tech talks and live Q&A ession that shows how much Flutter is pushing UI development forward.</i>
+        <i>{description}</i>
         <h3 className='text-secondary flex items-center gap-2'>
             <span className='text-dark text-xl'>
                 <BsFillCalendar2DateFill />
             </span> 
-            4th March, 2023
+            {date}
         </h3>
         <h3 className='text-secondary flex items-center gap-2'>
             <span className='text-dark text-xl'>
                 <MdLocationOn />
             </span> 
-            Co-Development Hub, Maiduguri
+            {venue}
         </h3>
         <h3 className='text-secondary flex items-center gap-2'>
             <span className='text-dark text-xl'>
                 <RiTimeFill />
             </span> 
-            10:00am
+            {time}
             </h3>
     </div>
   )

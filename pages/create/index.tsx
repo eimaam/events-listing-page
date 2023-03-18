@@ -1,8 +1,8 @@
 import React, {ReactEventHandler, useState} from 'react'
 import { prisma } from '@/lib/prisma'
-import Router from 'next/router'
+import Router, { useRouter } from 'next/router'
 
-interface DataTypes {
+export interface Event {
   title: string,
   description: string,
   venue: string,
@@ -11,7 +11,8 @@ interface DataTypes {
 }
 
 const CreateEvent:React.FC = () => {
-  const [data, setData] = useState<DataTypes>({
+  const router = useRouter()
+  const [data, setData] = useState<Event>({
     title: "",
     description: "",
     venue: "",
@@ -28,7 +29,7 @@ const CreateEvent:React.FC = () => {
     }))
     console.log(data)
   }
-console.log(JSON.stringify(data))
+
   const createEvent = async (e:React.SyntheticEvent) => {
     e.preventDefault()
     const content = data
@@ -39,7 +40,7 @@ console.log(JSON.stringify(data))
         body: JSON.stringify(content)
       });
       if(response.ok){
-        await Router.push('/events');
+        router.reload();
       }
     }catch(err){
       console.log(err)
