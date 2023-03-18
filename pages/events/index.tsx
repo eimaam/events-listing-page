@@ -1,13 +1,13 @@
 import ConfirmationModal from '@/components/ConfirmationModal';
 import EditEventModal from '@/components/EditEventModal';
 import EventCard from '@/components/EventCard';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 import { prisma } from "../../lib/prisma"
 import { Event } from '../create';
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const events = await prisma.event.findMany({
     orderBy: {
       createdAt: 'desc',
